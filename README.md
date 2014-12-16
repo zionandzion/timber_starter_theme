@@ -19,7 +19,7 @@ __Optional__ (probably want these to make your life easier)
 - W3 Total Cache*
 - EWWW Image Optimizer
 
-_* <sub><sup>W3 Total Cache  cannot be made required because it should not be activated until theme development is complete. At launch, activate this plugin for some much-needed wordpress performance boosting.</sub></sup>_
+_* <sub>W3 Total Cache  cannot be made required because it should not be activated until theme development is complete. At launch, activate this plugin for some much-needed wordpress performance boosting.</sup>_
 
 ## Assets
 
