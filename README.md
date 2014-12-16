@@ -39,3 +39,6 @@ Not a ton in here, we use the GTM Plugin Activation class to load the plugins li
 ## twig/
 
 Stick your twig templates, objects, and macros in here. Do with it what you will. Some basics are set up here but aren't required for this theme. 
+
+## Codekit
+Codekit is already configured. Install the theme, and drag the __theme__ folder into codekit. Do not drag the entire wordpress install into codekit. That will be a pain for everyone involved. Only drag the theme folder into codekit and everything will be ready to go. 
