@@ -7,12 +7,12 @@ Starter theme using Timber and the components workflow
 
 This theme automatically loads plugins that we use often, and recommends some plugins that will help with development and site performance. 
 
-__Required:__
+__Required:__ (must use for this theme)
 - Advanced Custom Fields
 - Pods
 - Timber
 
-__Optional__
+__Optional__ (probably want these to make your life easier)
 - Admin Menu Editor
 - Yoast
 - Contact Form 7
