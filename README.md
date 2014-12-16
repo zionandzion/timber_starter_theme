@@ -32,13 +32,13 @@ This theme comes with the general structure we use nowadays, as well as a couple
 - less/objects/_template.less
   - Basic object template. Use when creating a new component in the project. Provides scope and media queries
 
-## includes/
+## Includes
 
-Not a ton in here, we use the GTM Plugin Activation class to load the plugins listed above, so we include that class in this folder. Feel free to stick any other php theme depencies you want in this folder and include them in the functions.php file. 
+Not a ton in the includes/ folder. We use the GTM Plugin Activation class to load the plugins listed above, so we include that class in this folder. Feel free to stick any other php theme depencies you want in this folder and include them in the functions.php file. 
 
-## twig/
+## Twig
 
-Stick your twig templates, objects, and macros in here. Do with it what you will. Some basics are set up here but aren't required for this theme. 
+Stick your twig templates, objects, and macros in /twig. Do with it what you will. Some basics are set up here but aren't required for this theme. 
 
 ## Codekit
 Codekit is already configured. Install the theme, and drag the __theme__ folder into codekit. Do not drag the entire wordpress install into codekit. That will be a pain for everyone involved. Only drag the theme folder into codekit and everything will be ready to go. 
