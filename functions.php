@@ -98,7 +98,7 @@ new StarterSite();
 function debug($msg)
 {
 	echo '<code class="container">';
-	echo '<pre>';
+	echo '<pre class="well">';
 	print_r($msg);
 	echo '</pre>';
 	echo '</code>';
