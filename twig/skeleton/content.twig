@@ -1,0 +1,9 @@
+{% if page.layout is not defined or page.layout == 'content' %}
+
+	{% import 'layout/content.twig' %}
+
+{% elseif page.layout == 'content-sidebar.twig' %}
+
+	{% import 'layouts/content-sidebar.twig' %}
+
+{% else %}
