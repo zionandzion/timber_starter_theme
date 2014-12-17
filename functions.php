@@ -72,11 +72,6 @@ class StarterSite extends TimberSite {
 				'name'      => 'EWWW Image Optimizer',
 				'slug'      => 'ewww-image-optimizer',
 				'required'  => false
-			),
-			array(
-				'name'      => 'EWWW Image Optimizer',
-				'slug'      => 'ewww-image-optimizer',
-				'required'  => false
 			)
 		);
 
