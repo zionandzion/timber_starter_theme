@@ -5,24 +5,24 @@
 			<dl>
 				<dt>Address:</dt>
 				<dd itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-					{% if address.address %}
+					{% if address.street %}
 						<span itemprop="streetAddress">
-						{{ address.address }}
+						{{ address.street }}
 					</span>
 					{% endif %}
-					{% if address.city %}
+					{% if address.locality %}
 						<span itemprop="addressLocality">
-						{{ address.city -}}{{ address.state ? '' : ',' }}
+						{{ address.locality -}}{{ address.state ? '' : ',' }}
 					</span>
 					{% endif %}
-					{% if address.state %}
+					{% if address.region %}
 						<span itemprop="addressRegion">
-					{{ address.state }}
+					{{ address.region }}
 					</span>
 					{% endif %}
-					{% if address.zip_code %}
+					{% if address.postalcode %}
 						<span itemprop="postalCode">
-						{{ address.zip_code }}
+						{{ address.postalcode }}
 					</span>
 					{% endif %}
 				</dd>
@@ -30,24 +30,25 @@
 		</li>
 	{% endif %}
 
-	{% if phone %}
+	{% if address.telephone %}
 		<li>
 			<dl>
 				<dt>Contact:</dt>
 				<dd itemprop="telephone">
-					{{ phone }}
+					{{ address.telephone }}
 				</dd>
 			</dl>
 		</li>
 	{% endif %}
 
-	{% if hours %}
+	{% if address.hours %}
 		<li>
 			<dl>
 				<dt>Hours:</dt>
 				<dd>
-					Mon. - Sat: <time>{{ hours.monday_to_saturday_hours }}</time>
-					Sun: <time>{{ hours.sunday_hours }}</time>
+				{% for day in address.hours %}
+					{{ day }}: <time>{{ day.open }} - {{ day.close }}</time><br>
+				{% endfor %}
 				</dd>
 			</dl>
 		</li>
