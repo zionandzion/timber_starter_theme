@@ -51,7 +51,7 @@ This theme uses bower (built into codekit) for some of the front-end dependencie
 - Bootstrap
   - All bootstrap css and javascript is included
 - jQuery
-  - This is __not__ used in our files, but is automatically included in bower when downloading bootstrpa ecause it is a bootstrap dependency. Ignore this one. I load jQuery through the cdn via the functions.php file. 
+  - This is __not__ used in our files, but is automatically included in bower when downloading bootstrap because it is a bootstrap dependency. Ignore this one. I load jQuery through the cdn via the functions.php file. 
 - Conditionizr
   - Gives you class names for various user agents/browsers. It is configured in the scripts.js file
 - Modernizr
