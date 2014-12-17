@@ -1,9 +1,7 @@
-{% if page.layout is not defined or page.layout == 'content' %}
-
+{% if widgets.sidebar is not defined %}
 	{% import 'layout/content.twig' %}
 
-{% elseif page.layout == 'content-sidebar.twig' %}
-
+{% else %}
 	{% import 'layouts/content-sidebar.twig' %}
 
-{% else %}
+{% endif %}

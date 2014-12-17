@@ -19,9 +19,12 @@ class StarterSite extends TimberSite {
 		add_filter('timber_context', array($this, 'add_to_context'));
 		add_filter('get_twig', array($this, 'add_to_twig'));
 		add_action('wp_enqueue_scripts', array($this, 'register_scripts'));
+		add_action('widgets_init', array($this, 'register_sidebars'));
 		add_action( 'tgmpa_register', array($this, 'register_required_plugins'));
 		parent::__construct();
 	}
+
+	// scripts and styles
 	function register_scripts() {
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', false, null, true);
@@ -31,6 +34,35 @@ class StarterSite extends TimberSite {
 		wp_register_style('theme_styles');
 		wp_enqueue_style('theme_styles', $this->assets . '/css/styles.css', false, 'all');
 	}
+
+	// sidebars / widget areas
+	function register_sidebars() {
+		$sidebars = array(
+			array(
+				'name' => 'Sidebar',
+				'id' => 'sidebar',
+				'description' => __('Shows to the right of your content.', 'zz'),
+				'before_title' => '',
+				'after_title' => '',
+				'before_widget' => '',
+				'after_widget' => ''
+			),
+			array(
+				'name' => 'Footer',
+				'id' => 'footer',
+				'description' => __('Shows at the bottom of your site.', 'zz'),
+				'before_title' => '',
+				'after_title' => '',
+				'before_widget' => '',
+				'after_widget' => ''
+			)
+		);
+		foreach($sidebars as $args) {
+			register_sidebar($args);
+		}
+	}
+
+	// plugins
 	function register_required_plugins() {
 		$plugins = array(
 			array(
@@ -77,13 +109,16 @@ class StarterSite extends TimberSite {
 
 		tgmpa( $plugins );
 	}
+
+	// global context
 	function add_to_context($context){
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		return $context;
 	}
+
+	// twig filters/functions
 	function add_to_twig($twig){
-		/* this is where you can add your own fuctions to twig */
 		$twig->addExtension(new Twig_Extension_StringLoader());
 		$twig->addFilter('debug', new Twig_Filter_Function('debug'));
 		return $twig;
