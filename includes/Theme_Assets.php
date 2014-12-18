@@ -6,7 +6,7 @@
  * Time: 2:37 PM
  */
 
-class Theme_Assets {
+class Theme_Assets extends Theme {
 	protected function __construct() {}
 
 ////////////////////////////////////////////////////////////////////////////////

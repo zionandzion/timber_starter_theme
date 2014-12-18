@@ -34,7 +34,9 @@ This theme comes with the general structure we use nowadays, as well as a couple
 
 ## Includes
 
-Not a ton in the includes/ folder. We use the GTM Plugin Activation class to load the plugins listed above, so we include that class in this folder. Feel free to stick any other php theme depencies you want in this folder and include them in the functions.php file. 
+We use the GTM Plugin Activation class to load the plugins listed above, so we include that class in this folder.
+Beyond that, we use a few singletons
+Feel free to stick any other php theme depencies you want in this folder and include them in the functions.php file.
 
 ## Twig
 
