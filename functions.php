@@ -141,18 +141,20 @@ class CustomTwig {
 		// associate twig name and function name here
 		$this->filters = array(
 			array(
-				'type' => 'filter', // filter or function ?
+				'type'        => 'filter', // filter or function ?
 				'twig_string' => 'debug', // in twig: {{ somevar|debug }}
-				'function' => array($this, 'debug')
+				'function'    => array($this, 'debug')
 			),
 			array(
-				'type' => 'function',
+				'type'        => 'function',
 				'twig_string' => 'social', // e.g. {{ social(post.title, post.permalink).facebook }}
-				'function' => array($this, 'social_media_icons')
+				'function'    => array($this, 'social_media_icons')
 			)
 			// etc
 		);
 
+
+		
 		$twig->addExtension(new Twig_Extension_StringLoader());
 		foreach($this->filters as $item) {
 			$args = array($this, $item['function']);
@@ -166,6 +168,9 @@ class CustomTwig {
 			}
 		}
 	}
+
+
+
 
 	// Add new functions and filters below.
 	function debug($message) {
