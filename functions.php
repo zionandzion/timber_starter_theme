@@ -16,7 +16,7 @@ class StarterSite extends TimberSite {
 	function setup() {
 		$this->add_theme_supports();
 		$this->add_filters();
-		$this->add_actions
+		$this->add_actions();
 	}
 
 	function add_theme_supports() {
@@ -33,7 +33,7 @@ class StarterSite extends TimberSite {
 	function add_actions() {
 		add_action('wp_enqueue_scripts', array($this, 'laod_scripts'));
 		add_action('widgets_init',       array($this, 'register_widget_areas'));
-		add_action('tgmpa_register',     array($this, 'register_required_plugins'));
+		add_action('tgmpa_register',     array($this, 'register_plugins'));
 	}
 
 	// scripts and styles
@@ -77,7 +77,7 @@ class StarterSite extends TimberSite {
 	}
 
 	// plugins
-	function register_required_plugins() {
+	function register_plugins() {
 		$plugins = array(
 			array(
 				'name'      => 'Advanced Custom Fields',
@@ -154,7 +154,7 @@ class CustomTwig {
 		);
 
 
-		
+
 		$twig->addExtension(new Twig_Extension_StringLoader());
 		foreach($this->filters as $item) {
 			$args = array($this, $item['function']);
