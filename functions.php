@@ -183,8 +183,8 @@ class CustomTwig {
 
 	function secial_media_icons($link, $title) {
 		$share = array(
-			'facebook' => "http://www.facebook.com/share.php?u=$link&title=$title",
-			'twitter' => "http://twitter.com/home?status=$title+$link",
+			'facebook'    => "http://www.facebook.com/share.php?u=$link&title=$title",
+			'twitter'     => "http://twitter.com/home?status=$title+$link",
 			'google_plus' => "https://plus.google.com/share?url=$link"
 		);
 		return $share;
