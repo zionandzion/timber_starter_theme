@@ -135,9 +135,36 @@ new StarterSite();
 
 
 class CustomTwig {
-	public $filters;
-	function init($twig) {
 
+	//////////////////////////////////////////////////////////////////////////////
+	// Factory (ignore)
+	//////////////////////////////////////////////////////////////////////////////
+	private $filters;
+	private $twig;
+	public function init($twig) {
+		$this->create_filters_array();
+		$this->twig = $twig;
+		$this->twig->addExtension(new Twig_Extension_StringLoader());
+		foreach($this->filters as $item) {
+			$args = array($this, $item['function']);
+			if($item['type'] == 'filter') {
+				$filter = new Twig_SimpleFilter($item['twig_string'], $args);
+				$this->twig->addFilter($filter);
+			}
+			else {
+				$filter = new Twig_SimpleFunction($item['twig_string'], $args);
+				$this->twig->addFunction($filter);
+			}
+		}
+	}
+
+
+
+	//////////////////////////////////////////////////////////////////////////////
+	// Add Filters to the array
+	//////////////////////////////////////////////////////////////////////////////
+
+	private function create_filters_array() {
 		// associate twig name and function name here
 		$this->filters = array(
 			array(
@@ -152,27 +179,13 @@ class CustomTwig {
 			)
 			// etc
 		);
-
-
-
-		$twig->addExtension(new Twig_Extension_StringLoader());
-		foreach($this->filters as $item) {
-			$args = array($this, $item['function']);
-			if($item['type'] == 'filter') {
-				$filter = new Twig_SimpleFilter($item['twig_string'], $args);
-				$twig->addFilter($filter);
-			}
-			else {
-				$filter = new Twig_SimpleFunction($item['twig_string'], $args);
-				$twig->addFunction($filter);
-			}
-		}
 	}
 
 
-
-
+	//////////////////////////////////////////////////////////////////////////////
 	// Add new functions and filters below.
+	//////////////////////////////////////////////////////////////////////////////
+
 	function debug($message) {
 		echo '<code class="container">';
 		echo '<pre class="well">';
