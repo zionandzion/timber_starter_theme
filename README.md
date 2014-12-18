@@ -44,6 +44,7 @@ Stick your twig templates, objects, and macros in /twig. Do with it what you wil
 Codekit is already configured. Install the theme, and drag the __theme__ folder into codekit. Do not drag the entire wordpress install into codekit. That will be a pain for everyone involved. Only drag the theme folder into codekit and everything will be ready to go. 
 
 ## Bower
+
 This theme uses bower (built into codekit) for some of the front-end dependencies. You'll want to run an update via codekit on these when using this starter theme. The following are pulled from bower:
 
 - animate.less
@@ -60,3 +61,8 @@ This theme uses bower (built into codekit) for some of the front-end dependencie
   - We have used this in the past, so it is included here. However, codekit is configured to use autoprefixer so there's no real benefit for this. Try to move away from it. 
 - Wordpress Core Styles
   - some basic styling for wordpress classes added from the wysiwyg such as alignleft, alignright, and aligncenter
+
+## Functions.php
+
+Sets up Timber and the theme. Things it does:
+

@@ -14,13 +14,23 @@ class StarterSite extends TimberSite {
 	}
 
 	function setup() {
+		$this->add_theme_supports();
+		$this->add_filters();
+		$this->add_actions
+	}
+
+	function add_theme_supports() {
 		add_theme_support('post-formats');
 		add_theme_support('post-thumbnails');
 		add_theme_support('menus');
+	}
 
+	function add_filters() {
 		add_filter('timber_context', array($this, 'add_to_context'));
-		add_filter('get_twig',       array($this->customTwig, 'construct'));
+		add_filter('get_twig',       array($this->customTwig, 'init'));
+	}
 
+	function add_actions() {
 		add_action('wp_enqueue_scripts', array($this, 'laod_scripts'));
 		add_action('widgets_init',       array($this, 'register_widget_areas'));
 		add_action('tgmpa_register',     array($this, 'register_required_plugins'));
@@ -126,29 +136,38 @@ new StarterSite();
 
 class CustomTwig {
 	public $filters;
-	function construct($twig) {
-		
+	function init($twig) {
+
 		// associate twig name and function name here
 		$this->filters = array(
 			array(
+				'type' => 'filter', // filter or function ?
 				'twig_string' => 'debug', // in twig: {{ somevar|debug }}
 				'function' => array($this, 'debug')
 			),
 			array(
-				'twig_string' => 'social', // e.g. {{ social|facebook }}
+				'type' => 'function',
+				'twig_string' => 'social', // e.g. {{ social(post.title, post.permalink).facebook }}
 				'function' => array($this, 'social_media_icons')
 			)
+			// etc
 		);
 
 		$twig->addExtension(new Twig_Extension_StringLoader());
 		foreach($this->filters as $item) {
 			$args = array($this, $item['function']);
-			$filter = new Twig_SimpleFilter($item['twig_string'], $args);
-			$twig->addFilter($filter);
+			if($item['type'] == 'filter') {
+				$filter = new Twig_SimpleFilter($item['twig_string'], $args);
+				$twig->addFilter($filter);
+			}
+			else {
+				$filter = new Twig_SimpleFunction($item['twig_string'], $args);
+				$twig->addFunction($filter);
+			}
 		}
 	}
 
-	// Add new functions, filters and tests below.
+	// Add new functions and filters below.
 	function debug($message) {
 		echo '<code class="container">';
 		echo '<pre class="well">';
@@ -163,6 +182,6 @@ class CustomTwig {
 			'twitter' => "http://twitter.com/home?status=$title+$link",
 			'google_plus' => "https://plus.google.com/share?url=$link"
 		);
-		return array('share' => $share);
+		return $share;
 	}
 }
