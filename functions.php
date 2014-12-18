@@ -9,11 +9,6 @@ function load_dependencies() {
 }
 
 class StarterSite extends TimberSite {
-	private $Plugins;
-	private $Context;
-	private $Scripts;
-	private $Widgets;
-	private $Filters;
 
 	function __construct(){
 		load_dependencies();
@@ -39,10 +34,10 @@ class StarterSite extends TimberSite {
 
 	function register_widget_areas() {
 		$defaults = array(
-			'before_title' => '',
-			'after_title' => '',
+			'before_title'  => '',
+			'after_title'   => '',
 			'before_widget' => '',
-			'after_widget' => ''
+			'after_widget'  => ''
 		);
 		$sidebars = Theme_Widgets::get_instance()->sidebars();
 		foreach($sidebars as $args) {
@@ -58,7 +53,7 @@ class StarterSite extends TimberSite {
 	function add_to_twig($twig) {
 		$additions = Theme_Filters::get_instance()->add_to_twig();
 		$twig->addExtension(new Twig_Extension_StringLoader());
-		foreach($this->filters as $item) {
+		foreach($additions as $item) {
 			$args = array(Theme_Filters::get_instance(), $item['function']);
 			if($item['type'] == 'filter') {
 				$filter = new Twig_SimpleFilter($item['twig_string'], $args);
