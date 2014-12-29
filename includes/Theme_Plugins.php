@@ -1,7 +1,6 @@
 <?php
 
-class Theme_Plugins extends Theme {
-	private static $plugins;
+class Theme_Plugins {
 	protected function __construct() {}
 
 
@@ -10,7 +9,7 @@ class Theme_Plugins extends Theme {
 	// automatically be installed upon theme activation
 	////////////////////////////////////////////////////////////////////////////////
 	public static function plugins() {
-		self::$plugins = array(
+		$plugins = array(
 			array(
 				'name'      => 'Advanced Custom Fields',
 				'slug'      => 'advanced-custom-fields',
@@ -52,6 +51,6 @@ class Theme_Plugins extends Theme {
 				'required'  => false
 			)
 		);
-		tgmpa(self::$plugins);
+		tgmpa($plugins);
 	}
 }

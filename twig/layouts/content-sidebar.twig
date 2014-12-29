@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-			<div id="site-content">
+			<section id="site-content">
 
 				{% block content %}
 					{% for post in posts %}
@@ -27,16 +27,16 @@
 					{% endfor %}
 				{% endblock %}
 
-			</div>
+			</section>
 		</div>
 		<div class="col-md-3">
-			<aside id="site-sidebar">
+			<section id="site-sidebar">
 
 				{% block sidebar %}
 					{{ widgets.sidebar }}
 				{% endblock %}
 
-			</aside>
+			</section>
 		</div>
 	</div>
 </div>

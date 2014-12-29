@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div id="site-content">
+			<article id="site-content">
 
 				{% block content %}
 					<article>
@@ -15,7 +15,7 @@
 							{% endblock %}
 
 							{% block body %}
-								{{ posts.content }}
+								{{ post.content }}
 							{% endblock %}
 
 							{% block footer %}
@@ -27,7 +27,7 @@
 					</article>
 				{% endblock %}
 
-			</div>
+			</article>
 		</div>
 	</div>
 </div>

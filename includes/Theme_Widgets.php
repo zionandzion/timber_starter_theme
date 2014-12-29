@@ -6,7 +6,7 @@
  * Time: 2:33 PM
  */
 
-class Theme_Widgets extends Theme {
+class Theme_Widgets {
 	protected function __construct() {}
 
 
@@ -14,7 +14,7 @@ class Theme_Widgets extends Theme {
 // Add items to the array to generate more widget areas for the them.
 ////////////////////////////////////////////////////////////////////////////////
 	public static function sidebars() {
-		return array(
+		$widget_areas =  array(
 			array(
 				'name' => 'Sidebar',
 				'id' => 'sidebar'
@@ -24,5 +24,6 @@ class Theme_Widgets extends Theme {
 				'id' => 'footer'
 			)
 		);
+		return $widget_areas;
 	}
 }

@@ -6,7 +6,7 @@
  * Time: 12:10 PM
  */
 
-class Theme_Context extends Theme {
+class Theme_Context {
 	protected function __construct() {}
 
 

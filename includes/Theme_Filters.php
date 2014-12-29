@@ -6,7 +6,7 @@
  * Time: 1:08 PM
  */
 
-class Theme_Filters extends Theme {
+class Theme_Filters {
 	protected function __construct() {}
 
 
@@ -18,12 +18,12 @@ class Theme_Filters extends Theme {
 			array(
 				'type'        => 'filter', // filter or function ?
 				'twig_string' => 'debug', // in twig: {{ somevar|debug }}
-				'function'    => array(self::get_instance(), 'debug')
+				'function'    => 'debug'
 			),
 			array(
 				'type'        => 'function',
 				'twig_string' => 'social', // in twig: {{ social(post.title, post.permalink).facebook }}
-				'function'    => array(self::get_instance(), 'social_media_icons')
+				'function'    => 'social_media_icons'
 			)
 		);
 	}
@@ -32,7 +32,7 @@ class Theme_Filters extends Theme {
 ////////////////////////////////////////////////////////////////////////////////
 // Now define the functions themselves.
 ////////////////////////////////////////////////////////////////////////////////
-	function debug($message) {
+	public function debug($message) {
 		echo '<code class="container">';
 		echo '<pre class="well">';
 		print_r($message);
@@ -40,7 +40,7 @@ class Theme_Filters extends Theme {
 		echo '</code>';
 	}
 
-	function secial_media_icons($link, $title) {
+	public function secial_media_icons($link, $title) {
 		$share = array(
 			'facebook'    => "http://www.facebook.com/share.php?u=$link&title=$title",
 			'twitter'     => "http://twitter.com/home?status=$title+$link",
