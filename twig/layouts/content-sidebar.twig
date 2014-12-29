@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div id="site-content">
+
+				{% block content %}
+					{% for post in posts %}
+						<article>
+
+							{% block title %}
+								<header>
+									<h1>{{ post.post_title }}</h1>
+									<time datetime="{{ post.post_date_gmt }}" pubdate>{{ post.post_date }}</time>
+								</header>
+							{% endblock %}
+
+							{% block body %}
+								{{ posts.content }}
+							{% endblock %}
+
+							{% block footer %}
+								<footer>
+								</footer>
+							{% endblock %}
+
+						</article>
+					{% endfor %}
+				{% endblock %}
+
+			</div>
+		</div>
+		<div class="col-md-3">
+			<aside id="site-sidebar">
+
+				{% block sidebar %}
+					{{ widgets.sidebar }}
+				{% endblock %}
+
+			</aside>
+		</div>
+	</div>
+</div>

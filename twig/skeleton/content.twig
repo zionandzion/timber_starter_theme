@@ -1,0 +1,7 @@
+{% if widgets.sidebar is not defined %}
+	{% include 'layout/content.twig' %}
+
+{% else %}
+	{% include 'layouts/content-sidebar.twig' %}
+
+{% endif %}

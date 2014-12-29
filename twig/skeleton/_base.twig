@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" {{site.language_attributes}}>
+
+	<head>
+		{% include 'skeleton/meta.twig' %}
+	</head>
+
+	<body class="{{body_class}}">
+
+		<div id="header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+						{% include 'skeleton/header.twig' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="main" role="main">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+						{% include 'skeleton/content.twig' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+						{% include 'skeleton/footer.twig' %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{ function('wp_footer') }}
+	</body>
+</html>
